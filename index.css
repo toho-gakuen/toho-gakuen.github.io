@@ -1,0 +1,192 @@
+*{
+  font-family: "Mamelon", "Tsukushi A Round Gothic", "筑紫A丸ゴシック";
+}
+body{
+  margin: 0px;
+  overflow: hidden;
+}
+header{
+  position: absolute;
+  top: 0px;
+  height: 64px;
+  width: 100%;
+  background-color: transparent;
+}
+ul{
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  height: 64px;
+  width: 60%;
+  float: right;
+  padding: 0px;
+  margin: 0px;
+}
+ul a{
+  margin: 0px;
+  line-height: 64px;
+  padding: 0px;
+  list-style: none;
+  text-decoration: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #ffffff;
+}
+a{
+  color: #000000;
+  text-decoration: none;
+}
+p{
+  font-size: 1.2em;
+}
+#container-profile p a{
+  color: #428cf4 !important;
+}
+
+#background-image{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  transition: 0.2s ease;
+  background-image: url(./background-image.jpg);
+  background-position: center;
+  background-size: cover;
+}
+#background-image.dark{
+  filter: brightness(0.3);
+}
+#parallax-container{
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  transition: 0.2s ease;
+  overflow-y: scroll;
+  width: 100%;
+  top: 64px;
+  bottom: 0px;
+}
+#parallax-container.dark{
+  filter: brightness(0.3);
+}
+#hamburger-button{
+  position: relative;
+  float: right;
+  height: 50px;
+  width: 50px;
+  margin: 8px;
+  cursor: pointer;
+  background-image: url(./hamburger-close.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: 0.5s ease;
+  display: none;
+}
+#hamburger-button.open{
+  background-image: url(./hamburger-open.svg);
+}
+#sidebar-menu{
+  position: fixed;
+  width: 80%;
+  left: -80%;
+  top: 0px;
+  bottom: 0px;
+  transition: 0.5s ease;
+  background-color: rgba(236, 240, 241,0.85);
+}
+#sidebar-menu.view{
+  left: 0px;
+}
+#sidebar-title{
+  text-align: center;
+}
+
+.parallax-item{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+}
+.containers{
+  position: absolute;
+  overflow: scroll;
+  box-sizing: border-box;
+  padding: 0px 30px;
+  transition: 0.2s ease;
+  opacity: 0;
+  pointer-events: none;
+  background-color: rgba(236, 240, 241,0.6);
+  top: 64px;
+  bottom: 0px;
+  width: 100%;
+}
+.sidebar-items{
+  width: 80%;
+  text-align: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin: 10%;
+  padding: 5px 5%;
+  border: solid 2px black;
+}
+
+/*styles for each*/
+
+#container-profile{
+}
+#container-members{
+}
+#container-teaser{
+}
+
+#parallax-logo{
+  background-image: url(./logo.png);
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#parallax-particles{
+  background-image: url(./particles.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/*togglable classes*/
+
+.visible{
+  opacity: 1;
+  pointer-events: all;
+  display: block;
+}
+
+@font-face{
+  font-family: "Mamelon";
+  src: url(./Mamelon.otf);
+}
+
+@media handheld, only screen and (max-width: 767px){
+  ul{
+    display: none;
+  }
+  p{
+    font-size: 1em;
+  }
+  
+  #hamburger-button{
+    display: block;
+  }
+  #parallax-logo{
+    transition: 0.2s ease;
+    background-size: 95%;
+  }
+  #parallax-particles{
+    background-image: url(./vertical-particles.png);
+    transition: 0.2s ease;
+    background-size: 100%;
+  }
+}
