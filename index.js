@@ -8,10 +8,10 @@ $(function(){
         $sidebarItems = $(".sidebar-items"),
         $parallaxContainer = $("#parallax-container"),
         $background = $("#background-image");
-  
+
   let $screenSizeX = $(window).width() / 2,
       $screenSizeY = $(window).height() / 2;
-  
+
   $sidebarItems.click(function(){
     $containers.removeClass("visible");
     console.log($sidebarItems.index(this));
@@ -31,7 +31,7 @@ $(function(){
         break;
     };
   });
-  
+
   $headerListItems.click(function(){
     $containers.removeClass("visible");
     console.log($headerListItems.index(this));
@@ -47,23 +47,32 @@ $(function(){
         break;
     };
   });
-  
+
   $hamburger.click(function(){
     $(this).toggleClass("open");
     $sidebar.toggleClass("view");
     $parallaxContainer.toggleClass("dark");
     $background.toggleClass("dark");
   });
-  
+
   $(window).resize(function(){
     $screenSizeX = $(window).width() / 2;
     $screenSizeY = $(window).height() / 2;
     console.log($screenSizeX, $screenSizeY);
   });
-  
+
   $(window).mousemove(function(e){
     $parallaxLogo.css("transform", "translate(" + (e.screenX - $screenSizeX) / 20 + "px," + (e.screenY - $screenSizeY) / 15 + "px)");
     $parallaxParticle.css("transform", "translate(" + (e.screenX - $screenSizeX) / 10 + "px," + (e.screenY - $screenSizeY) / 10 + "px)");
   });
-  
+
+  $(function(){
+    clickAnchorOnURL();
+  });
+
+  function clickAnchorOnURL() {
+    var anchor = location.hash;
+    var link = $("[href='" + anchor + "']");
+    link.size() && link.click();
+  }
 });
